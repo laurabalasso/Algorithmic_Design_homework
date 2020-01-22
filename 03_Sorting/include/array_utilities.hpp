@@ -27,5 +27,10 @@ function to find the maximum in an array
 */
 int Max(int * A, int size);
 
+/*
+function to fill an array with random numbers between 1 and rand_max
+ */
+void Random_Fill(int * A, int size, int rand_max);
+
 #endif
 

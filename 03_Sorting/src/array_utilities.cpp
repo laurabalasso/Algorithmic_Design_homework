@@ -45,3 +45,11 @@ int Max(int * A, int size){
     }
     return max;
 }
+
+void Random_Fill(int * A, int size, int rand_max){
+    
+    for(int i = 0; i < size; i++){
+        A[i] = (rand() % rand_max) + 1;
+    }
+    
+}
