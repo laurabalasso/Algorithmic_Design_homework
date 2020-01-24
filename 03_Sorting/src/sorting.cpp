@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include "../include/array_utilities.hpp"
 #include "../include/sorting.hpp"
 
@@ -64,6 +65,90 @@ void Counting_Sort(int * A, int * B, int sizeA){
     
 }
 
+/* RADIX SORT */
 
+void Counting_Sort_Aux(int * array, int size, int place)
+{
+    const int max = 10;
+    int output[size];
+    int count[max] = {0};
+ 
+    for (int i = 0; i < size; i++)
+        count[(array[i] / place) % 10]++;
+    
+    for (int i = 1; i < max; i++)
+        count[i] += count[i - 1];
+    
+    for (int i = size - 1; i >= 0; i--)
+    {
+        output[count[(array[i] / place) % 10] - 1] = array[i];
+        count[(array[i] / place) % 10]--;
+    }
+    for (int i = 0; i < size; i++)
+        array[i] = output[i];
+}
 
+void Radix_Sort(int * array, int size)
+{
+    int max = Max(array, size);
+    for (int place = 1; max / place > 0; place *= 10)
+        Counting_Sort_Aux(array, size, place);
+}
 
+/* BUCKET SORT */
+
+Node* Bubble_Sort( Node * first){
+    int swapped;
+    struct Node * ptr1;
+    struct Node * lptr = NULL;
+    
+    if (first == NULL)
+        return first;
+    
+    do
+    {
+        swapped = 0;
+        ptr1 = first;
+        
+        while (ptr1->next != lptr)
+        {
+            if (ptr1->value > ptr1->next->value)
+            {
+                Swap_Node(ptr1, ptr1->next);
+                swapped = 1;
+            }
+            ptr1 = ptr1->next;
+        }
+        lptr = ptr1;
+    }
+    while (swapped);
+    return first;
+}
+
+void Bucket_Sort(double *array, int n)
+{
+    Node * B[n];
+    
+    for (int i = 0; i < n; i++)
+        B[i] = NULL;
+    
+    for (int i = 0; i < n; i++) {
+        size_t idx = floor(array[i]*n);
+        B[idx] = append(B[idx],array[i]);
+    }
+    
+    for (int i = 0; i < n; i++) B[i] = Bubble_Sort(B[i]);
+    int size;
+    int aux_idx=0;
+    for (int i = 0; i < n; i++) {
+        size = List_Size(B[i]);
+        for (int j = 0; j < size; j++) {
+            array[aux_idx] = Get_Value_List(B[i],j);
+            aux_idx++;
+        }
+    }
+    
+   for (int i = 0; i < n; i++) {
+        delete B[i] ;
+    }
+}

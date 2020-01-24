@@ -1,4 +1,5 @@
 #include <iostream>
+#include <climits>
 #include "include/array_utilities.hpp"
 #include "include/sorting.hpp"
 
@@ -39,4 +40,30 @@ int main(){
     std::cout << "Counting sort: \n";
     
     Array_Print(B, size);
+    
+    /* COUNTING SORT */
+    
+    Random_Fill(A, size, 20);
+    
+    Radix_Sort(A, size);
+    
+    std::cout << "Radix sort: \n";
+    
+    Array_Print(A, size);
+    
+    /* BUCKET SORT */
+    
+    double * D = new double[size];
+    
+    Random_Fill_Double(D, size);
+    
+    Bucket_Sort(D, size);
+    
+    std::cout << "Bucket sort: \n";
+    
+    Array_Print(D, size);
+
+    std::cout<< "\n";
+    
+    
 }
