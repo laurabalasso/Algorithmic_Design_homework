@@ -2,6 +2,7 @@
 #include <cmath>
 #include "../include/array_utilities.hpp"
 #include "../include/sorting.hpp"
+#include "../../04_Heaps/include/heap.hpp"
 
 /* INSERTION SORT */
 
@@ -151,4 +152,18 @@ void Bucket_Sort(double *array, int n)
    for (int i = 0; i < n; i++) {
         delete B[i] ;
     }
+}
+
+
+/* HEAP SORT */
+
+void heap_sort(int * array, size_t size){
+    
+    heap H = build_max_heap(array, size);
+    
+    for (int i = size - 1; i >= 1; i--)
+    {
+        array[i] = max_remove_minimum(&H);
+    }
+    
 }
