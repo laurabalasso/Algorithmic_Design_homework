@@ -1,3 +1,4 @@
+#include "../include/matrix.h"
 #include <stdlib.h>
 
 int naive_matrix_mult(float **C,

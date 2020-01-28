@@ -1,7 +1,6 @@
 CXX = gcc
-OPT = -O4
-SOURCE = matrix.c strassen.c
-FLAG = -std=c99 -Wall -Wextra
+SOURCE = src/matrix.c src/strassen.c src/Strassen_improved.c
+FLAG = -std=c99 -O4 -Wall -Wextra
 
 all: main.x
 

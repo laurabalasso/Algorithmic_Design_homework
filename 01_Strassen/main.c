@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "matrix.h"
-#include "strassen.h"
+#include "include/matrix.h"
+#include "include/strassen.h"
+#include "include/Strassen_improved.h"
 
 #define MAX_ELEM_VALUE 25
 
@@ -29,6 +30,7 @@ int main(int argc, char *argv[]) {
 
   float **C0=allocate_matrix(n,n);
   float **C1=allocate_matrix(n,n);
+  float **C2=allocate_matrix(n,n);
   float **A=allocate_matrix(n,n);
   float **B=allocate_matrix(n,n);
 
@@ -38,6 +40,9 @@ int main(int argc, char *argv[]) {
   randomly_fill_matrix(B, n, n);
 
   struct timespec b_time, e_time;
+    
+  printf("N\tNaive \t\tStrassen \tImproved \tCheck\n");
+  printf("-------------------------------------------------------------\n");
 
   for (size_t i=1; i<=n; i*=2) {
     printf("%ld", i);
@@ -53,8 +58,15 @@ int main(int argc, char *argv[]) {
     clock_gettime(CLOCK_REALTIME, &e_time);
 
     printf("\t%lf", get_execution_time(b_time, e_time));
-
-    printf("\t%d\n", same_matrix(C0, i, i, C1, i, i));
+      
+    clock_gettime(CLOCK_REALTIME, &b_time);
+    strassen_improved(C2, A, B, i);
+    clock_gettime(CLOCK_REALTIME, &e_time);
+      
+    printf("\t%lf", get_execution_time(b_time, e_time));
+      
+    printf("\t%d - ", same_matrix(C0, i, i, C1, i, i));
+    printf("%d\n", same_matrix(C0, i, i, C2, i, i));
   }
 
 

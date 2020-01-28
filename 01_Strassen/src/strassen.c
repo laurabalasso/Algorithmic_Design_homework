@@ -1,6 +1,7 @@
 #include <stdlib.h>
 
-#include "matrix.h"
+#include "../include/matrix.h"
+#include "../include/strassen.h"
 
 void sum_matrix_blocks(float **C,
                        const size_t C_f_row,
