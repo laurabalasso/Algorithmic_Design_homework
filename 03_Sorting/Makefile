@@ -1,4 +1,4 @@
-EXE = sorting_main.x
+EXE = sorting_main.x 
 
 CXX = g++
 CXXFLAGS = -Wall -std=c++11
@@ -9,10 +9,10 @@ all: $(EXE)
 	$(CXX) -c $< -o $@ $(CXXFLAGS)
 
 
-$(EXE): sorting_main.o src/array_utilities.o src/sorting.o src/heap.o
+$(EXE): sorting_main.o src/array_utilities.o src/sorting.o src/heap.o src/Select.o
 	$(CXX) $^ -o $(EXE) 
 
-sorting_main.o: src/sorting.o src/array_utilities.o src/heap.o
+sorting_main.o: src/sorting.o src/array_utilities.o src/heap.o src/Select.o
 
 src/array_utilities.o: include/array_utilities.hpp
 
@@ -20,7 +20,9 @@ src/sorting.o: include/sorting.hpp
 
 src/heap.o: include/heap.hpp
 
-format: $(SRC) include/array_utilities.hpp include/sorting.hpp include/heap.hpp
+Src/Select.o: include/Select.hpp
+
+format: $(SRC) include/array_utilities.hpp include/sorting.hpp include/heap.hpp include/Select.hpp
 	@clang-format -i $^ 2>/dev/null || echo "Please install clang-format to run this commands"
 
 clean:

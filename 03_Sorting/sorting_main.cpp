@@ -2,6 +2,7 @@
 #include <climits>
 #include "include/array_utilities.hpp"
 #include "include/sorting.hpp"
+#include "include/Select.hpp"
 
 
 int main(){
@@ -65,5 +66,13 @@ int main(){
 
     std::cout<< "\n";
     
+    /* SELECT */
+    
+    std::cout << "Select: \n";
+    
+    Random_Fill(A, size, 20);
+    Array_Print(A,size);
+    std::cout<< "\n";
+    for(int p=0;p<size;p++) std::cout<< selection(A, p, size) << std::endl;
     
 }
