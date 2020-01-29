@@ -18,27 +18,54 @@ void insertion_sort(int * A, int N){
 
 /*  QUICK SORT  */
 
-int Partition(int * A, int i, int j, int p){
-    swap(A, i, p);
-    p = i;
-    i = i+1;
-    while(i<=j){
-        if(A[i]>A[p]){
-            swap(A, i, j);
-            j = j-1;
+int Partition(int * array, int begin, int end, int pivot)
+{
+    // put the pivot at the begin
+    swap(array, begin, pivot);
+    // change the indexes to correctly find the pivot
+    pivot = begin;
+    // deal with duplicates
+    int right = 0;
+    // start from comparing begin and end till they end goes after begin
+    while (begin <= end) {
+        // if I'm in the first part and I'm grater than pivot, swap me to the end
+        if (array[begin] > array[pivot]) {
+            swap(array, begin, end);
+            // reduce the end index
+            end--;
         }
-        else i = i+1;
+        // deal with duplicates assigning randomly the element on the left or on the
+        // right
+        else if (array[begin] == array[pivot]) {
+            if (right) {
+                swap(array, begin, end);
+                end--;
+                right = 0;
+            } else {
+                begin++;
+                right = 1;
+            }
+        }
+        // else I'm in the right place
+        else
+            begin++;
     }
-    swap(A, p, j);
-    return j;
+    // put the pivot in the middle
+    swap(array, pivot, end);
+    return end;
 }
 
 
-void Quick_Sort(int * A, int N, int l){
-    while(l<N){
-        int p = Partition(A, l, N-1, l);
-        Quick_Sort(A, p, l);
-        l = p + 1;
+
+void Quick_Sort(int* array, int begin, int end, int pivot)
+{
+    while (begin < end) {
+        int p = Partition(array, begin, end, pivot);
+        
+        Quick_Sort(array, begin, p - 1, pivot);
+        begin = p + 1;
+        pivot = p + 1;
+        
     }
 }
 

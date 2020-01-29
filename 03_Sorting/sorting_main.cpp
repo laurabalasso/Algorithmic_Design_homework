@@ -22,9 +22,9 @@ int main(){
     
     /*  QUICK SORT */
     
-    Random_Fill(A, size, 20);
+    Random_Fill(A, size, 15);
     
-    Quick_Sort(A, size);
+    Quick_Sort(A, 0, size, 1);
     
     std::cout << "Quick sort: \n";
     

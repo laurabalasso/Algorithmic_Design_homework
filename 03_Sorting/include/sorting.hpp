@@ -4,9 +4,9 @@
 
 void insertion_sort(int * A, int N);
 
-int Partition(int * A, int i, int j, int p);
+int Partition(int * array, int begin, int end, int pivot);
 
-void Quick_Sort(int * A, int N, int l = 0);
+void Quick_Sort(int* array, int begin, int end, int pivot);
 
 void Counting_Sort(int * A, int * B,  int sizeA);
 
