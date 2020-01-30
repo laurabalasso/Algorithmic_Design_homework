@@ -1,31 +1,15 @@
-EXE = sorting_main.x 
-
 CXX = g++
-CXXFLAGS = -Wall -std=c++11
+CXXFLAGS =  -Wall -Wextra -std=c++11 
 
-all: $(EXE)
+all: sorting_main.x sorting_tests.x
 
-%.o: %.cpp
-	$(CXX) -c $< -o $@ $(CXXFLAGS)
+sorting_main.x: src/array_utilities.cpp src/heap.cpp src/sorting.cpp src/Select.cpp
+	$(CXX) -O3 -I include $^ sorting_main.cpp -o $@ $(CXXFLAGS)
 
-
-$(EXE): sorting_main.o src/array_utilities.o src/sorting.o src/heap.o src/Select.o
-	$(CXX) $^ -o $(EXE) 
-
-sorting_main.o: src/sorting.o src/array_utilities.o src/heap.o src/Select.o
-
-src/array_utilities.o: include/array_utilities.hpp
-
-src/sorting.o: include/sorting.hpp
-
-src/heap.o: include/heap.hpp
-
-Src/Select.o: include/Select.hpp
-
-format: $(SRC) include/array_utilities.hpp include/sorting.hpp include/heap.hpp include/Select.hpp
-	@clang-format -i $^ 2>/dev/null || echo "Please install clang-format to run this commands"
+sorting_tests.x: src/array_utilities.cpp src/heap.cpp src/sorting.cpp
+	$(CXX) -O3 -I include $^ sorting_tests.cpp -o $@ $(CXXFLAGS)
 
 clean:
-	rm -rf src/*.o *.o $(EXE) 
+	rm -rf src/*.o *.o *.x
 
 .PHONY: clean all format

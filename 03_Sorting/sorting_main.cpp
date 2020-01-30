@@ -22,13 +22,22 @@ int main(){
     
     /*  QUICK SORT */
     
-    Random_Fill(A, size, 15);
+    Random_Fill(A, size, 20);
     
-    Quick_Sort(A, 0, size, 1);
+    Quick_Sort(A, 0, size-1);
     
     std::cout << "Quick sort: \n";
     
     Array_Print(A, size);
+    
+    Random_Fill(A, size, 20);
+    
+    Quick_Sort_Best(A, 0, size-1);
+    
+    std::cout << "Best case quick sort: \n";
+    
+    Array_Print(A, size );
+    
     
     /* COUNTING SORT */
     
@@ -42,7 +51,7 @@ int main(){
     
     Array_Print(B, size);
     
-    /* COUNTING SORT */
+    /* RADIX SORT */
     
     Random_Fill(A, size, 20);
     
