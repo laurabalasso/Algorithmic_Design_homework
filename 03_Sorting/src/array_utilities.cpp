@@ -126,3 +126,16 @@ double Get_Value_List(Node * head, int i){
     
     return aux-> value;
     }
+
+
+void fill_descending(int * A, int n){
+    for(int i = 0; i < n ; i++){
+        A[i] = n - i ;
+    }
+}
+
+void fill_ascending(int * A , int n){
+    for(int i = 0; i < n ; i++){
+        A[i] = i + 1;
+    }
+}
