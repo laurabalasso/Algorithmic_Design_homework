@@ -6,7 +6,9 @@ void insertion_sort(int * A, int N);
 
 int Partition(int * array, int begin, int end, int pivot);
 
-void Quick_Sort(int* array, int begin, int end, int pivot);
+void Quick_Sort(int* array, int begin, int end);
+
+void Quick_Sort_Best(int* array, int begin, int end);
 
 void Counting_Sort(int * A, int * B,  int sizeA);
 
