@@ -1,7 +1,7 @@
 # Homework 1: Matrix Multiplication
 
 ### Assignment
-Compile the provided implementatio of the Strassen's algorithm using `cc -O4 -o strassen_test  *.c`, 
+Compile the provided implementation of the Strassen's algorithm using `cc -O4 -o strassen_test  *.c`, 
 then produce an improved version of the code by reducing the memory allocations and test the effects on the execution time.
  
 ### In this folder
