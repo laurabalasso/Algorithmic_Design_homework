@@ -8,5 +8,9 @@
 
 ### In this folder 
 Both the max and the min heap are implemented in the file `src/heap.cpp`.
+
+
 In `main.cpp`  the implemented function are tested on a max heap, then the execution time required to build a max heap from an array is measured for different array sizes.
+
+
 Use the command `make` to compile the code. Then run the executable to get the results of the tests. 
