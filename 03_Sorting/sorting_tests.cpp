@@ -163,20 +163,19 @@ int main(){
         std::cout<< n << "\t  ";
         std::cout<< std::setprecision(8)  << insertionTime << "\t\t " << insertionTimeWorst << "\t\t  " << insertionTimeBest << "\t\t " << quickTime << "\t   " << quickTimeWorst << "\t " << quickTimeBest << "\t" << countingTime << "\t " << radixTime << "\t  " << bucketTime << "\t " << heapTime  << "\n";
         
+        delete[] insertionArray;
+        delete[] bestInsertion;
+        delete[] worstInsertion;
+        delete[] quickArray;
+        delete[] bestQuick;
+        delete[] worstQuick;
+        delete[] radixArray;
+        delete[] countArray;
+        delete[] bucketArray;
+        delete[] heapArray;
     }
-    /*
     
-    delete[] insertionArray;
-    delete[] bestInsertion;
-    delete[] worstInsertion;
-    delete[] quickArray;
-    delete[] bestQuick;
-    delete[] worstQuick;
-    delete[] radixArray;
-    delete[] countArray;
-    delete[] bucketArray;
-    delete[] heapArray;
-     */
     
+
 }
 
