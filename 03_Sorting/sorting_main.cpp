@@ -82,6 +82,7 @@ int main(){
     Random_Fill(A, size, 20);
     Array_Print(A,size);
     std::cout<< "\n";
+    
     for(int p=0;p<size;p++) std::cout<< selection(A, p, size) << std::endl;
     
 }

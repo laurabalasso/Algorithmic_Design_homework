@@ -99,19 +99,3 @@ int selection(int * A, int i, int N){
     
     return select_aux(A, 0, N, i);
 }
-
-/*
-int main()
-{
-    
-    int N = 10;
-    int * array = new int[N];
-    Random_Fill(array, N, 20);
-    Array_Print(array,N);
-    cout<< "\n";
-    for(int p=0;p<N;p++) cout<< selection(array, p, N) <<endl;
-   
-    
-    return 0;
-}
-*/
