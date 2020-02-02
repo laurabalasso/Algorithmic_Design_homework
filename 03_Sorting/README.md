@@ -28,4 +28,4 @@ The file `src/heap.cpp` contains an implementation of a max heap, needed for the
 
 Use the command `make` to compile the code. Two executable will be produced:
 * `sorting_main.x` tests the correctness of the implementations, by applying the algorithms to a random-filled array and printing the solution
-* `sorting_tests.x` measure the execution time for different array sizes of each algorithm
+* `sorting_tests.x` shows the execution time of each implementation for different array sizes. In particular, can be noticed that the execution time of insertion sort and quick sort is `O(n^2)` in the worst case and respectively `O(n)` and `O(n log n)` in the best case. This behaviour is also shown graphically in the folder `results`
