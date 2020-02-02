@@ -20,6 +20,6 @@ Node* Bubble_Sort( Node * first);
 
 void Bucket_Sort(double *array, int n);
 
-void heap_sort(int * array, size_t size);
+void heap_sort(int * array, int size);
 
 #endif /* sorting_hpp */

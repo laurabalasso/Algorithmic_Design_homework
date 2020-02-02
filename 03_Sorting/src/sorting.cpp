@@ -2,7 +2,7 @@
 #include <cmath>
 #include "../include/array_utilities.hpp"
 #include "../include/sorting.hpp"
-#include "../../04_Heaps/include/heap.hpp"
+#include "../include/heap.hpp"
 
 /* INSERTION SORT */
 
@@ -160,7 +160,7 @@ void Bucket_Sort(double *array, int n)
         B[i] = NULL;
     
     for (int i = 0; i < n; i++) {
-        size_t idx = floor(array[i]*n);
+        int idx = floor(array[i]*n);
         B[idx] = append(B[idx],array[i]);
     }
     
@@ -183,7 +183,7 @@ void Bucket_Sort(double *array, int n)
 
 /* HEAP SORT */
 
-void heap_sort(int * array, size_t size){
+void heap_sort(int * array, int size){
     
     heap H = build_max_heap(array, size);
     

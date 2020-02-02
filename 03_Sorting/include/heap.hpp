@@ -5,7 +5,7 @@
 struct heap
 {
     int * array;
-    size_t size;
+    int size;
 };
 
 
@@ -48,9 +48,9 @@ int min_remove_minimum(heap * H);
 int max_remove_minimum(heap * H);
 
 /* function that builds a heap from an array of a given size */
-heap build_min_heap(int * arr, size_t size);
+heap build_min_heap(int * arr, int size);
 
-heap build_max_heap(int * arr, size_t size);
+heap build_max_heap(int * arr, int size);
 
 /* function that decrease the value of a given node preserving the heap property */
 void min_heap_decrease_key(heap * H, int i, int val);

@@ -130,7 +130,7 @@ int max_remove_minimum(heap * H){
 
 /* function that builds a min heap from an array of a given size */
 
-heap build_min_heap(int * arr, size_t size)
+heap build_min_heap(int * arr, int size)
 {
     heap H = {arr , size};
     for(int i = size ; i>=0; i--){
@@ -141,7 +141,7 @@ heap build_min_heap(int * arr, size_t size)
 
 /* function that builds a max heap from an array of a given size */
 
-heap build_max_heap(int * arr, size_t size)
+heap build_max_heap(int * arr, int size)
 {
     heap H = {arr , size};
     for(int i = size-1 ; i>=0; --i){
