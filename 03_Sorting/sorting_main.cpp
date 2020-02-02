@@ -77,12 +77,20 @@ int main(){
     
     /* SELECT */
     
-    std::cout << "Select: \n";
+    std::cout << "Select (with repeted values): \n";
     
-    Random_Fill(A, size, 20);
-    Array_Print(A,size);
-    std::cout<< "\n";
-    
-    for(int p=0;p<size;p++) std::cout<< selection(A, p, size) << std::endl;
+    A[0] = 4;
+    A[1] = 8;
+    A[2] = 2;
+    A[3] = 4;
+    A[4] = 13;
+    A[5] = 19;
+    A[6] = 15;
+    A[7] = 13;
+    A[8] = 2;
+    A[9] = 6;
+
+    for(int p=0;p<size;p++) std::cout<< selection(A, p, size) << "\t";
+    std::cout << "\n";
     
 }
