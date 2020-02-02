@@ -73,21 +73,19 @@ void Quick_Sort_Best(int * array, int begin, int end){
 
 void Counting_Sort(int * A, int * B, int sizeA){
     
-    int sizeC = Max(A, sizeA)-Min(A, sizeA)+1;
-    int * C = Array_Alloc(sizeC);
+    int sizeC = Max(A, sizeA)  + 1;
+    int * C = new int[sizeC];
     for(int i = 0; i < sizeA; i++){
-        C[A[i]-1] = C[A[i]-1]+1;
+        C[A[i]] = C[A[i]]+1;
     }
-    
     
     for(int j = 1; j < sizeC; j++ ){
         C[j] = C[j-1] + C[j];
     }
     
-    
-    for(int i = sizeA-1; i>=0; --i){
-        B[C[A[i]-1]-1] = A[i];
-        C[A[i]-1] = C[A[i]-1]-1;
+    for(int i = sizeA - 1; i>=0; i--){
+        B[C[A[i]]-1] = A[i];
+        C[A[i]] = C[A[i]] - 1;
     }
     
 }

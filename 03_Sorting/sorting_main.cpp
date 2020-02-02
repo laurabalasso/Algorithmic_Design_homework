@@ -41,13 +41,13 @@ int main(){
     
     /* COUNTING SORT */
     
-    Random_Fill(A, size, 20);
+    Random_Fill(A, size, 50);
+    
+    std::cout << "Counting sort: \n";
     
     int * B = Array_Alloc(size);
     
     Counting_Sort(A, B, size);
-    
-    std::cout << "Counting sort: \n";
     
     Array_Print(B, size);
     
