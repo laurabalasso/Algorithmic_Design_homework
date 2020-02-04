@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS =  -Wall -Wextra -std=c++11 
+CXXFLAGS = -std=c++11 
 
 all: sorting_main.x sorting_tests.x select_main.x
 
