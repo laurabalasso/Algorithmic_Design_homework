@@ -68,7 +68,7 @@ void Random_Fill(int * A, int size, int rand_max ){
 void Random_Fill_Double(double * A, int size){
     
     for(int i = 0; i < size; i++){
-        A[i] = ((double) rand()/(RAND_MAX));
+        A[i] = ((double) (rand()%50) / 50);
     }
     
 }
@@ -128,14 +128,17 @@ double Get_Value_List(Node * head, int i){
     }
 
 
-void fill_descending(int * A, int n){
-    for(int i = 0; i < n ; i++){
-        A[i] = n - i ;
+void reverse_order(int* a,  int n){
+    int j;
+    int key;
+    for (int i = 1; i < n; i++) {
+        key = a[i];
+        j = i - 1;
+        while (j >= 0 && a[j] < key) {
+            a[j + 1] = a[j];
+            j = j - 1;
+        }
+        a[j + 1] = key;
     }
-}
-
-void fill_ascending(int * A , int n){
-    for(int i = 0; i < n ; i++){
-        A[i] = i + 1;
-    }
+    
 }

@@ -54,9 +54,6 @@ Node * append(Node *head, const double value);
 
 double Get_Value_List(Node * head, int i);
 
-void fill_descending(int * A, int n);
-
-void fill_ascending(int * A , int n);
-
+void reverse_order(int* a,  int n);
 #endif
 
